@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Install Nginx
+      become: yes
+      apt:
+        name: nginx
+        state: present  # Ensure Nginx is installed
