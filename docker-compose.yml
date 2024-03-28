@@ -39,3 +39,12 @@ services:
       - SSH_ENABLE_ROOT=true
     volumes:
       - ./secrets/id_rsa_container.pub:/root/.ssh/authorized_keys
+
+  loadbalancer:
+      image: nginx:latest
+      restart: unless-stopped
+      network_mode: "bridge"
+      ports:
+        - "80:80"
+      volumes:
+        - C:\Users\villa\Desktop\School\Third Year\Ensf 400\Assignment 2\ensf400-lab5-ansible\nginx.cfg:/etc/nginx/nginx.conf:ro
